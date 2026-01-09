@@ -1,0 +1,2 @@
+source E:/soft/ESP-project/esp32-demo-Assembly/Demo_esp_sr/build/bootloader/gdbinit/symbols
+source E:/soft/ESP-project/esp32-demo-Assembly/Demo_esp_sr/build/bootloader/gdbinit/connect
