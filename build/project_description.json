@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "Demo_esp_sr",
-    "project_version":    "1",
+    "project_version":    "4bb33f4-dirty",
     "project_path":       "E:/soft/ESP-project/esp32-demo-Assembly/Demo_esp_sr",
     "idf_path":           "E:/soft/Espressif/frameworks/esp-idf-v5.4.2",
     "build_dir":          "E:/soft/ESP-project/esp32-demo-Assembly/Demo_esp_sr/build",

@@ -14,7 +14,7 @@
 
 //? I2S配置参数
 //? 注意：音频配置在此组件头文件中管理
-#define INMP441_SAMPLE_RATE     8000   //? 采样率（标准CD音质，与扬声器匹配）
+#define INMP441_SAMPLE_RATE     16000  //? 采样率（SR语音识别要求16kHz）
 #define INMP441_DMA_FRAME_NUM   256     //? DMA缓冲帧数
 #define INMP441_BIT_WIDTH       32      //? 位宽
 #define INMP441_CHANNEL_MODE    I2S_SLOT_MODE_STEREO  //? 声道模式

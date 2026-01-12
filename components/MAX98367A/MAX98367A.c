@@ -21,7 +21,8 @@ void i2s_tx_init(void)
  
     i2s_std_config_t std_cfg = {
         .clk_cfg = I2S_STD_CLK_DEFAULT_CONFIG(MAX98367A_SAMPLE_RATE),
-        .slot_cfg = I2S_STD_MSB_SLOT_DEFAULT_CONFIG(MAX98367A_BIT_WIDTH, MAX98367A_CHANNEL_MODE),
+        // 使用Philips/I2S标准格式，与INMP441保持一致
+        .slot_cfg = I2S_STD_PHILIPS_SLOT_DEFAULT_CONFIG(I2S_DATA_BIT_WIDTH_32BIT, MAX98367A_CHANNEL_MODE),
         .gpio_cfg = {
             .mclk = I2S_GPIO_UNUSED,
             .din = I2S_GPIO_UNUSED,

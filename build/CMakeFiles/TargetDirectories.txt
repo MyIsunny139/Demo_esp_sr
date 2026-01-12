@@ -907,6 +907,7 @@ E:/soft/ESP-project/esp32-demo-Assembly/Demo_esp_sr/build/esp-idf/espressif__esp
 E:/soft/ESP-project/esp32-demo-Assembly/Demo_esp_sr/build/esp-idf/espressif__esp-dsp/CMakeFiles/install/local.dir
 E:/soft/ESP-project/esp32-demo-Assembly/Demo_esp_sr/build/esp-idf/espressif__esp-dsp/CMakeFiles/install/strip.dir
 E:/soft/ESP-project/esp32-demo-Assembly/Demo_esp_sr/build/esp-idf/espressif__esp-sr/CMakeFiles/__idf_espressif__esp-sr.dir
+E:/soft/ESP-project/esp32-demo-Assembly/Demo_esp_sr/build/esp-idf/espressif__esp-sr/CMakeFiles/srmodels_bin.dir
 E:/soft/ESP-project/esp32-demo-Assembly/Demo_esp_sr/build/esp-idf/espressif__esp-sr/CMakeFiles/edit_cache.dir
 E:/soft/ESP-project/esp32-demo-Assembly/Demo_esp_sr/build/esp-idf/espressif__esp-sr/CMakeFiles/rebuild_cache.dir
 E:/soft/ESP-project/esp32-demo-Assembly/Demo_esp_sr/build/esp-idf/espressif__esp-sr/CMakeFiles/list_install_components.dir

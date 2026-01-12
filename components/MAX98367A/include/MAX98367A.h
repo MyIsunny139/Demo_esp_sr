@@ -16,7 +16,7 @@
 
 //? I2S配置参数
 //? 注意：音频配置在此组件头文件中管理
-#define MAX98367A_SAMPLE_RATE     8000                 //? 采样率（标准CD音质）
+#define MAX98367A_SAMPLE_RATE     16000                //? 采样率（与麦克风匹配）
 #define MAX98367A_DMA_FRAME_NUM   256                   //? DMA缓冲帧数
 #define MAX98367A_BIT_WIDTH       32                    //? 位宽
 #define MAX98367A_CHANNEL_NUM     2                     //? 声道数（修正为2，匹配立体声）

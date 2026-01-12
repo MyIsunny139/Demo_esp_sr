@@ -21,8 +21,9 @@ void i2s_rx_init(void)
     i2s_std_config_t std_cfg = {
         .clk_cfg = I2S_STD_CLK_DEFAULT_CONFIG(INMP441_SAMPLE_RATE),
         
-        // 虽然inmp441采集数据为24bit，但是仍可使用32bit来接收，中间存储过程不需考虑，只要让声音怎么进来就怎么出去即可
-        .slot_cfg = I2S_STD_MSB_SLOT_DEFAULT_CONFIG(INMP441_BIT_WIDTH, INMP441_CHANNEL_MODE),
+        // INMP441使用标准I2S/Philips格式，24位数据MSB对齐在32位帧中
+        // 使用PHILIPS格式而非MSB格式，确保正确接收数据
+        .slot_cfg = I2S_STD_PHILIPS_SLOT_DEFAULT_CONFIG(I2S_DATA_BIT_WIDTH_32BIT, INMP441_CHANNEL_MODE),
         .gpio_cfg = {
             .mclk = I2S_GPIO_UNUSED,
             .dout = I2S_GPIO_UNUSED,
