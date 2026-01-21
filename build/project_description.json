@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "Demo_esp_sr",
-    "project_version":    "4bb33f4-dirty",
+    "project_version":    "1",
     "project_path":       "E:/soft/ESP-project/esp32-demo-Assembly/Demo_esp_sr",
     "idf_path":           "E:/soft/Espressif/frameworks/esp-idf-v5.4.2",
     "build_dir":          "E:/soft/ESP-project/esp32-demo-Assembly/Demo_esp_sr/build",
@@ -11,7 +11,7 @@
     "app_elf":            "Demo_esp_sr.elf",
     "app_bin":            "Demo_esp_sr.bin",
     "build_type":         "flash_app",
-    "git_revision":       "v5.4.2-1-gc6a290dce1-dirty",
+    "git_revision":       "HEAD-HASH-NOTFOUND",
     "target":             "esp32s3",
     "rev":                "",
     "min_rev":            "0",

@@ -165,6 +165,7 @@ void afe_sr_iface_task(void *arg)
     }
     ESP_LOGI(TAG, "SR模型初始化成功，共 %d 个模型", sr_models->num);
     
+    
     //? 2. 查找WakeNet和MultiNet模型
     char *wn_model_name = esp_srmodel_filter(sr_models, ESP_WN_PREFIX, NULL);
     char *mn_model_name = esp_srmodel_filter(sr_models, ESP_MN_PREFIX, NULL);
@@ -234,7 +235,7 @@ void afe_sr_iface_task(void *arg)
         }
     }
     
-    //? 6. 启动Feed任务
+    // 6. 启动Feed任务
     BaseType_t ret = xTaskCreatePinnedToCore(afe_feed_task, "afe_feed_task", 4096, NULL, 5, NULL, 1);
     if (ret != pdPASS) {
         ESP_LOGE(TAG, "创建afe_feed_task失败");
@@ -257,8 +258,8 @@ void afe_sr_iface_task(void *arg)
         // 检查唤醒词状态
         if (fetch_result->wakeup_state == WAKENET_DETECTED) {
             ESP_LOGW(TAG, "========================================");
-            ESP_LOGW(TAG, "🎤 唤醒词检测! 索引=%d", fetch_result->wake_word_index);
-            ESP_LOGW(TAG, "📢 请在6秒内说出命令词");
+            ESP_LOGW(TAG, "唤醒词检测! 索引=%d", fetch_result->wake_word_index);
+            ESP_LOGW(TAG, "请在6秒内说出命令词");
             ESP_LOGW(TAG, "========================================");
             is_wakenet_detected = true;
             detecting_command = true;
@@ -279,7 +280,7 @@ void afe_sr_iface_task(void *arg)
                 // 识别到命令词
                 esp_mn_results_t *results = multinet->get_results(mn_model_data);
                 if (results) {
-                    ESP_LOGI(TAG, "🗣️ 识别到命令: ID=%d, 置信度=%.2f", 
+                    ESP_LOGI(TAG, "识别到命令: ID=%d, 置信度=%.2f", 
                              results->command_id[0], results->prob[0]);
                     
                     // 处理命令
@@ -289,16 +290,15 @@ void afe_sr_iface_task(void *arg)
                 // 识别成功后重置计时，继续等待下一个命令（而非立即退出）
                 mn_chunk_num = 0;
                 multinet->clean(mn_model_data);  // 清除状态，准备识别下一个命令
-                ESP_LOGI(TAG, "📢 可以继续说命令词（6秒内无操作自动退出）");
+                ESP_LOGI(TAG, "可以继续说命令词(6秒内无操作自动退出)");
                 
             } else if (mn_state == ESP_MN_STATE_TIMEOUT) {
                 // 6秒内没有识别到新命令，退出识别模式
-                ESP_LOGW(TAG, "⏱️ 6秒无新命令，退出识别模式");
+                ESP_LOGW(TAG, "6秒无新命令,退出识别模式");
                 detecting_command = false;
                 is_wakenet_detected = false;
             }
         }
-        
     }
     
     //? 清理资源（正常情况下不会执行到这里）
@@ -333,11 +333,11 @@ void audio_passthrough_task(void *pvParameters)
             //? 应用噪声过滤（去除低能量杂音）
             inmp441_filter_noise(passthrough_buf, bytes_read);
             
-            // max98367a_set_gain(3.0f);  //? 设置适度增益，避免过大音量损伤听力
-            //? 可选：应用适度增益（如需要）
+            // max98367a_set_gain(3.0f);  // 设置适度增益，避免过大音量损伤听力
+            // 可选：应用适度增益（如需要）
             max98367a_apply_gain(passthrough_buf, bytes_read);
             
-            //? 立即输出到扬声器
+            // 立即输出到扬声器
             if (i2s_channel_write(tx_handle, passthrough_buf, bytes_read, &bytes_written, portMAX_DELAY) != ESP_OK) {
                 ESP_LOGW("AUDIO_PASSTHROUGH", "Failed to write audio");
             }
